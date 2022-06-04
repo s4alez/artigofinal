@@ -1,0 +1,221 @@
+% abtex2-modelo-artigo.tex, v-1.9.2 laurocesar
+% Copyright 2012-2014 by abnTeX2 group at http://abntex2.googlecode.com/ 
+%
+
+% ------------------------------------------------------------------------
+% ------------------------------------------------------------------------
+% abnTeX2: Modelo de Artigo Acadêmico em conformidade com
+% ABNT NBR 6022:2003: Informação e documentação - Artigo em publicação 
+% periódica científica impressa - Apresentação
+% ------------------------------------------------------------------------
+% ------------------------------------------------------------------------
+
+\documentclass[
+	% -- opções da classe memoir --
+	article,			% indica que é um artigo acadêmico
+	11pt,				% tamanho da fonte
+	oneside,			% para impressão apenas no verso. Oposto a twoside
+	a4paper,			% tamanho do papel. 
+	% -- opções da classe abntex2 --
+	%chapter=TITLE,		% títulos de capítulos convertidos em letras maiúsculas
+	%section=TITLE,		% títulos de seções convertidos em letras maiúsculas
+	%subsection=TITLE,	% títulos de subseções convertidos em letras maiúsculas
+	%subsubsection=TITLE % títulos de subsubseções convertidos em letras maiúsculas
+	% -- opções do pacote babel --
+	english,			% idioma adicional para hifenização
+	brazil,				% o último idioma é o principal do documento
+	sumario=tradicional
+	]{abntex2}
+
+
+% ---
+% PACOTES
+% ---
+
+% ---
+% Pacotes fundamentais 
+% ---
+\usepackage{lmodern}			% Usa a fonte Latin Modern
+\usepackage[T1]{fontenc}		% Selecao de codigos de fonte.
+\usepackage[utf8]{inputenc}		% Codificacao do documento (conversão automática dos acentos)
+\usepackage{indentfirst}		% Indenta o primeiro parágrafo de cada seção.
+\usepackage{nomencl} 			% Lista de simbolos
+\usepackage{color}				% Controle das cores
+\usepackage{graphicx}			% Inclusão de gráficos
+\usepackage{microtype} 			% para melhorias de justificação
+% ---
+		
+% ---
+% Pacotes adicionais, usados apenas no âmbito do Modelo Canônico do abnteX2
+% ---
+\usepackage{lipsum}				% para geração de dummy text
+% ---
+		
+% ---
+% Pacotes de citações
+% ---
+\usepackage[brazilian,hyperpageref]{backref}	 % Paginas com as citações na bibl
+\usepackage[alf]{abntex2cite}	% Citações padrão ABNT
+% ---
+
+% ---
+% Configurações do pacote backref
+% Usado sem a opção hyperpageref de backref
+\renewcommand{\backrefpagesname}{Citado na(s) página(s):~}
+% Texto padrão antes do número das páginas
+\renewcommand{\backref}{}
+% Define os textos da citação
+\renewcommand*{\backrefalt}[4]{
+	\ifcase #1 %
+		Nenhuma citação no texto.%
+	\or
+		Citado na página #2.%
+	\else
+		Citado #1 vezes nas páginas #2.%
+	\fi}%
+% ---
+
+% ---
+% Informações de dados para CAPA e FOLHA DE ROSTO
+% ---
+\titulo{Poluição Atmosférica e\\ seus efeitos colaterais em SP.}
+\autor{Equipe WELLYNTON GONÇALVES\and RUBENS PRADA\and VINICIUS SALES\and PEDRO CAMACHO.}
+\local{Brasil}
+\data{2022, 06 MAY }
+% ---
+
+% ---
+% Configurações de aparência do PDF final
+
+% alterando o aspecto da cor azul
+\definecolor{blue}{RGB}{41,5,195}
+
+% informações do PDF
+\makeatletter
+\hypersetup{
+     	%pagebackref=true,
+		pdftitle={\@title}, 
+		pdfauthor={\@author},
+    	pdfsubject={Modelo de artigo científico com abnTeX2},
+	    pdfcreator={LaTeX with abnTeX2},
+		pdfkeywords={abnt}{latex}{abntex}{abntex2}{atigo científico}, 
+		colorlinks=true,       		% false: boxed links; true: colored links
+    	linkcolor=blue,          	% color of internal links
+    	citecolor=blue,        		% color of links to bibliography
+    	filecolor=magenta,      		% color of file links
+		urlcolor=blue,
+		bookmarksdepth=4
+}
+\makeatother
+% --- 
+
+% ---
+% compila o indice
+% ---
+\makeindex
+% ---
+
+% ---
+% Altera as margens padrões
+% ---
+\setlrmarginsandblock{3cm}{3cm}{*}
+\setulmarginsandblock{3cm}{3cm}{*}
+\checkandfixthelayout
+% ---
+
+% --- 
+% Espaçamentos entre linhas e parágrafos 
+% --- 
+
+% O tamanho do parágrafo é dado por:
+\setlength{\parindent}{1.3cm}
+
+% Controle do espaçamento entre um parágrafo e outro:
+\setlength{\parskip}{0.2cm}  % tente também \onelineskip
+
+% Espaçamento simples
+\SingleSpacing
+
+% ----
+% Início do documento
+% ----
+\begin{document}
+
+% Retira espaço extra obsoleto entre as frases.
+\frenchspacing 
+
+% ----------------------------------------------------------
+% ELEMENTOS PRÉ-TEXTUAIS
+% ----------------------------------------------------------
+
+%---
+%
+% Se desejar escrever o artigo em duas colunas, descomente a linha abaixo
+% e a linha com o texto ``FIM DE ARTIGO EM DUAS COLUNAS''.
+% \twocolumn[    		% INICIO DE ARTIGO EM DUAS COLUNAS
+%
+%---
+% página de titulo
+\maketitle
+
+
+\section{Resumo}
+Durante a pandemia, estudos foram realizados em relação à proporção da poluição de ar no centro de São Paulo, e segundo estudos da UFLA os poluentes atmosféricos tiveram uma redução após as fortes restrições devido a pandemia do Covid-19. Porém agora nos deparamos com um aumento na liberação das restrições em relação a covid, com isso vem se a questionar se os poluentes vão aumentar ou não.
+Com isso,  o grupo levantou o questionamento de quantas pessoas no centro de SP são afetadas por esse excesso de poluição no ar. Por meio de pesquisas conseguimos encontrar um público alvo, que são os idosos (pessoas com mais de 60 anos) e crianças, segundo a reportagem G1. Então nosso grupo busca achar maneiras de retardar esse problema e maneiras de tentar reduzir  a poluição atmosférica em SP.
+Primeiramente é necessário entender quais são os maiores causadores dessa poluição no centro,primeiramente vem o maior causador, que é 90% do problema, os meios de transportes em suas maiorias os movidos a combustíveis que são responsáveis por alta liberação de CO2 em seguida temos a má liberação de resíduos em indústrias e por último a queima de petróleo e carvão em usinas.
+Infelizmente a redução total da poluição é impossível, porém é possível reduzir um pouco e evitar um aumento, pensando em possibilidade o grupo decidiu que seguir o exemplo da avenida paulista, abrindo o centro para o público e proibindo automóveis se locomoveram no centro, e de segunda e terças apenas transporte público e meios de transporte que não emitem CO2.
+\subsection{Palavras-Chave}
+Poluição atmosférica. Idosos. Crianças. São Paulo.
+
+\section{Abstract}
+During the pandemic, studies were carried out in relation to the proportion of air pollution in downtown São Paulo, and according to UFLA studies, air pollutants had a reduction after the strong restrictions due to the Covid-19 pandemic. But now we are faced with an increase in the release of restrictions in relation to covid, with that comes to question whether pollutants will increase or not.
+With this, the group raised the question of how many people in downtown SP are affected by this excess air pollution. Through research we were able to find a target audience, which are the elderly (people over 60 years old) and children, according to the G1 report. So our group seeks to find ways to slow down this problem and ways to try to reduce air pollution in SP.
+Firstly, it is necessary to understand what are the biggest causes of this pollution in the center, first comes the biggest cause, which is 90% of the problem, the means of transport mostly powered by fuels that are responsible for high release of CO2 then we have the bad waste release in industries and finally the burning of oil and coal in power plants.
+Unfortunately, the total reduction of pollution is impossible, but it is possible to reduce a little and avoid an increase, thinking about the possibility, the group decided to follow the example of Paulista Avenue, opening the center to the public and prohibiting cars from moving in the center, and Mondays and Tuesdays only public transport and means of transport that do not emit CO2.
+
+\subsection{Keywords}
+Top pollution. Seniors. Children. São Paulo.
+
+
+\section{Introdução}
+Durante os últimos anos vivemos um duro período de pandemia, causado pelo vírus da covid-19, que nos levou a tomar diversas medidas para conter o avanço da doenças, tais elas como o isolamento total e a quarentena da população, com isso um estudo realizado pela UFLA mostrou que os poluentes atmosférico tiveram uma grande redução na cidade de São Paulo  com isso a ideia de estudar sobre como esses poluentes afetam a saúde das pessoas veio a tona para o grupo tendo em vista que diversas medidas de restrições foram flexibilizadas nos últimos meses com isso aumentando muito a circulação de veículos o fluxo de pessoas na rua e o funcionamento de empresas e fabricas, podendo assim alterar o nível de poluição atmosférica em SP assim podendo voltar a afetar a saúde de idosos e crianças que normalmente são os mais afetados.
+
+Dessa maneira neste artigo buscamos trazer soluções que possam reduzir o impacto da poluição atmosférica em idosos e crianças do mesmo jeito que diminuir este tipo de poluição em Sp.
+
+
+\section{Objetivo}
+	Para realização do seguinte trabalho, foram utilizadas pesquisas bibliográficas através de artigos, pelo google acadêmico 
+	O objetivo geral deste trabalho consiste em analisar as condições maléficas que a poluição atmosférica traz a grupos específicos, como: Idoso e crianças, logo, localizados na região do centro de São Paulo. Tendo como objetivo específico: Buscar alternativas para reduzir os impactos da poluição. 
+
+
+\section{Metodologia}
+A metodologia utilizada pelo grupo baseada no pensamento computacional onde é decomposto o problema proposto assim reconhecido padrões ou seja o porque esse problema acontece e seus padrões apos abstraímos o conteúdo de maneia a manter apenas o que é útil para cumprir os objetivos do trabalho, assim chegamos a ultima parte o algorítimo que é o que será realizado para concluir estes objetivos.
+
+\section{Discussão}
+\subsection{Como chegamos}
+Muitos estudos mostram uma associação positiva entre mortalidade e morbidade por problemas respiratórios em crianças e idosos no centro de SP.  A poluição atmosférica tem sido associada a aumentos de internações e de mortalidade, tanto por doenças respiratórias quanto por doenças cardiovasculares. Dentre os principais poluentes do ar, podemos citar a fumaça, partículas inaláveis, dióxido de enxofre, ozônio, dióxido de nitrogênio e monóxido de carbono. Essas substâncias podem causar sérios danos à saúde do homem. O monóxido de carbono, por exemplo, diminui a capacidade do sangue de transportar oxigênio pelo corpo, podendo causar hipóxia tecidual. Já o ozônio possui papel oxidante e citotóxico, podendo causar irritação nos olhos e diminuição da capacidade pulmonar, por exemplo. O dióxido de enxofre relaciona-se com irritações nas vias aéreas superiores, assim como o dióxido de nitrogênio. Esse último também pode provocar danos graves aos pulmões. E todas essas substâncias estão concentradas no centro de SP.
+
+\subsection{Principais causas}
+A qualidade de vida das pessoas é afetada diretamente pela emissão de gases dos automóveis, principalmente no centro de SP. Isso acontece devido à poluição causada pelas substâncias tóxicas emitidas pelos veículos. Segundo o relatório mais recente da Companhia Ambiental do Estado de São Paulo (Cetesb), com dados de 2008 a 2022, a frota de veículos é responsável na Grande São Paulo por 98% das emissões de monóxido de carbono (CO), 97% de hidrocarbonetos (HC), 9% de óxido de nitrogênio (NOx), 40% de material particulado e 33% de óxido de enxofre (SOx). Todos são materiais que poluem o meio ambiente.
+O alto índice de substâncias tóxicas dispostas na atmosfera nos leva a um alto número de pessoas sendo contaminadas por doenças que a ingestão dessas substâncias causam. Levando-nos a acreditar que a qualidade de vida das pessoas está sendo diretamente afetada pela emissão de gases por automóveis em sua maioria no centro de SP,  porque os mesmos são os maiores emissores de toxinas na nossa atmosfera. Segundo o relatório mais recente da companhia Ambiental do estado de sp, que reuniu dados desde 2008 a 2022, concluindo que a frota de veículos é maior responsável pela poluição do nosso ar sendo , 98% responsável pela emissão de monóxido de carbono CO, 96% de hidrocarbonetos HC, 9% de óxido de nitrogênio (NOx), 40% de material particulado e 33% de óxido de enxofre ( SOx).
+
+\subsection{Soluções}
+Desde o início das medidas de restrição devido à pandemia de Covid-19, estudos têm sido realizados levando em consideração situações atípicas desse momento de urgência e emergência, dentre eles, a relação da diminuição do tráfego de veículos e melhoria da poluição ambiental.  Infelizmente a redução total da poluição é impossível, porém é possível reduzir um pouco e evitar um aumento. Pensando na possibilidade, o grupo decidiu seguir  o exemplo da avenida paulista, abrindo o centro para o público e proibindo automóveis se locomoverem no centro, e de segunda a terça apenas transporte público e meios de transporte que não emitem CO2.  Também em Fortalecer a ciência de dados por trás das políticas de qualidade do ar, principalmente pela ampliação e pelo aperfeiçoamento do sistema de monitoramento atmosférico nacional, priorizando áreas críticas e uso de novas tecnologias.
+\newpage
+
+
+
+\section{Considerações finais}
+Infelizmente a poluição atmosférica é um problema seríssimo que pode afetar diretamente de forma mais impactante idosos e crianças. Podemos concluir diante os fatos apresentados que, à poluição causada pelas substâncias tóxicas emitidas pelos veículos e transportes públicos, mostram uma associação positiva entre mortalidade e morbidade por problemas respiratórios em crianças e idosos no centro de SP. 
+ Tendo como objetivo do trabalho buscar formas apropriadas de se reduzir este tipo de poluição em Sp e como também evitar contrair doenças que essa poluição causa, porém, reduzir uma poluição por completo é impossível, sendo assim foram propostas ideias para diminuir a emissão de gases tóxicos a atmosférica e como você como ser humano pode realizar para evitar poluir nossa atmosfera assim como evitar contrair doenças que ela pode nos causar.  
+
+\section{Referencias} 
+
+https://ufla.br/noticias/pesquisa/14667-estudo-aponta-diminuicao-de-poluentes-atmosfericos-na-cidade-de-sao-paulo-durante-pandemia-da-covid-19#:~:text=Estudo%20aponta%20diminui%C3%A7%C3%A3o%20de%20poluentes,UFLA%20%2D%20Universidade%20Federal%20de%20Lavras
+
+https://g1.globo.com/sao-paulo/respirar/noticia/2011/04/idosos-e-criancas-sao-os-que-mais-sofrem-com-poluicao-atmosferica.html
+
+https://www.ecycle.com.br/como-lidar-com-a-poluiasao-atmosferica-de-sao-paulo/#:~:text=Incentivar%20o%20uso%20de%20 tecnologias,de%20 fontes%20 limpas%20e%20 renov%C3%A1veis.
+https://www.pensamentoverde.com.br/meio-ambiente/o-que-podemos-fazer-para-diminuir-poluicao-do-ar-6-dicas-para-preservar-qualidade-do-ar/
+
+\end{document}
